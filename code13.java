@@ -1,4 +1,3 @@
-
 //Find all  pairs with given sum 
 import java.util.Scanner;
 public class code13 {
