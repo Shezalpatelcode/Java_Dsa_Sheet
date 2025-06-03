@@ -1,5 +1,4 @@
 //Q) move all the negative numbers to beggining and postive number to the end of the array
-//----------------------------------------------------
 public class code5 {
     void movenum(int a[])
     {
@@ -17,9 +16,7 @@ public class code5 {
           System.out.println("Array after arrangment--->");
         for(int i=0;i<a.length-1;i++){
             System.out.print(a[i]+ " ");
-        }
-    }
-    //-----------------------------------------
+        }}
     public static void main(String args[]){
          int a[]={2,3,-4,-78,76,100};
          code5 obj= new code5();
