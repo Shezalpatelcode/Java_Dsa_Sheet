@@ -58,8 +58,7 @@ public class code11 {
         int[] A = { 9, -3, 5, -2, -8, -6, 1, 3 };
  
         rearrange(A);
- 
-        // print the rearranged array
+
         System.out.println();
         System.out.println("Array after rearranging the array elements in alter");
         System.out.println(Arrays.toString(A));
