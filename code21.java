@@ -1,12 +1,12 @@
-
+//21. Reverse a string
 import java.util.Scanner;
 public class code21 {
 	public static void main(String[ ] arg)
 	{
 	String str;
-	Scanner scan=new Scanner(System.in);
+	Scanner sc=new Scanner(System.in);
 	System.out.print("Enter a string : ");
-	str=scan.nextLine();	
+	str=sc.nextLine();	
 	char[] ch=str.toCharArray(); 
 	System.out.println("Reverse of a String is :"); 
 	int j=ch.length;
@@ -14,6 +14,7 @@ public class code21 {
 	{
 	System.out.print(ch[i-1]); 
 	}
+    sc.close();
 	}
 }
 
