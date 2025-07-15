@@ -1,5 +1,5 @@
 //14. Subarray with given sum (Two pointer / Sliding window)
-public class code14 {
+//public class code14 {
     
 // public  static int minSubArrayLen(int target, int[] nums) {
 //     int left = 0, sum = 0, minLen = Integer.MAX_VALUE;
@@ -25,7 +25,7 @@ public class code14 {
 //     System.out.println("The subarray of the given sum: " + result);
 // }
 // }
-
+    public class code14{
     public static void findSubarrayWithSum(int target, int[] nums) {
         int left = 0, sum = 0;
 
