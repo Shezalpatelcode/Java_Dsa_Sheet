@@ -1,5 +1,4 @@
 import java.util.HashMap;
-
 public class code32 {
 
     // Returns the longest substring without repeating characters
@@ -9,7 +8,6 @@ public class code32 {
 
         for (int right = 0; right < s.length(); right++) {
             char c = s.charAt(right);
-
             // If we’ve seen c inside the current window, move left pointer
             if (lastSeen.containsKey(c) && lastSeen.get(c) >= left) {
                 left = lastSeen.get(c) + 1;
@@ -24,7 +22,6 @@ public class code32 {
         }
         return s.substring(startOfMax, startOfMax + maxLen);
     }
-
     public static void main(String[] args) {
         String input = "abcabcbb";
         String longest = longestSubstring(input);
