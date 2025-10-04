@@ -1,4 +1,4 @@
-import java.io.*;
+//import java.io.*;
 
 class code35a {
     static boolean isSubSequence(String s1, String s2,
