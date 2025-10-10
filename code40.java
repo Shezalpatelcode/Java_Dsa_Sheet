@@ -2,7 +2,7 @@
 // matrices.
 import java.io.*;
 
-class code40 {
+class code40c {
 
     static int N = 4;
 
