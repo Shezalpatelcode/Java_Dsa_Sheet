@@ -362,3 +362,40 @@ this is a new file on the java DSA Question sheet attempting
 Today we are Gonna start the questions 
 these all are new questions 
 this is the new day and new life 
+
+import java.util.*;
+
+class Solution {
+    public String findLargest(int[] arr) {
+        // 1. Convert int array to String array
+        String[] strings = new String[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            strings[i] = String.valueOf(arr[i]);
+        }
+
+        // 2. Sort strings using a custom comparator
+        // We compare (s2 + s1) to (s1 + s2) to sort in descending order of value
+        Arrays.sort(strings, new Comparator<String>() {
+            @Override
+            public int compare(String s1, String s2) {
+                String order1 = s1 + s2;
+                String order2 = s2 + s1;
+                return order2.compareTo(order1); 
+            }
+        });
+
+        // 3. Handle the edge case where the largest number is 0
+        // (e.g., input is [0, 0]), we should return "0" instead of "00"
+        if (strings[0].equals("0")) {
+            return "0";
+        }
+
+        // 4. Build the final string
+        StringBuilder sb = new StringBuilder();
+        for (String s : strings) {
+            sb.append(s);
+        }
+
+        return sb.toString();
+    }
+}
