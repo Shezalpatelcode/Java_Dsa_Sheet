@@ -399,3 +399,9 @@ class Solution {
         return sb.toString();
     }
 }
+
+commands 
+git init
+git add .
+git commit -m "comment"
+git push
