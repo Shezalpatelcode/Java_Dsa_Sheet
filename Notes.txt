@@ -438,4 +438,10 @@ git add .
 git commit -m "comment"
 git push
 
+commands 
+git init
+git add .
+git commit -m "comment"
+git push
+
 
