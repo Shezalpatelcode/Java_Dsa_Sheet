@@ -514,3 +514,41 @@ git commit -m "comment"
 git push
 
 This repository serves as a comprehensive, end-to-end implementation of Data Structures and Algorithms (DSA) using Java. It transitions from foundational concepts to complex, high-performance algorithmic strategies
+class Solution {
+    public String convert(String s, int numRows) {
+        // Edge case: If only 1 row or string is too short, no zigzag happens
+        if (numRows == 1 || s.length() <= numRows) {
+            return s;
+        }
+
+        // 1. Create a list of StringBuilders (one for each row)
+        StringBuilder[] rows = new StringBuilder[numRows];
+        for (int i = 0; i < numRows; i++) {
+            rows[i] = new StringBuilder();
+        }
+
+        int currentRow = 0;
+        boolean goingDown = false;
+
+        // 2. Iterate through the string
+        for (char c : s.toCharArray()) {
+            rows[currentRow].append(c);
+
+            // 3. Flip direction if we hit the top or bottom row
+            if (currentRow == 0 || currentRow == numRows - 1) {
+                goingDown = !goingDown;
+            }
+
+            // 4. Move to the next row based on direction
+            currentRow += goingDown ? 1 : -1;
+        }
+
+        // 5. Combine all rows into one final string
+        StringBuilder result = new StringBuilder();
+        for (StringBuilder row : rows) {
+            result.append(row);
+        }
+
+        return result.toString();
+    }
+}
