@@ -552,3 +552,14 @@ class Solution {
         return result.toString();
     }
 }
+
+       for (StringBuilder row : rows) {
+            result.append(row);
+        }
+
+        return result.toString();
+    }
+}
+
+hygwxbuiheduioewhncjroiuwnjvio
+hswiuohfiuowrehnvuovjwi
