@@ -584,3 +584,96 @@ class Solution {
         return sb.toString();
     }
 }
+let player = document.getElementById("player");
+let enemies = [document.getElementById("enemy1"), document.getElementById("enemy2")];
+let coin = document.getElementById("coin");
+let road = document.getElementById("road");
+
+let scoreText = document.getElementById("score");
+let gameOverText = document.getElementById("gameOver");
+
+let coinSound = document.getElementById("coinSound");
+let crashSound = document.getElementById("crashSound");
+
+let playerPos = 175;
+let speed = 5;
+let score = 0;
+let level = 1;
+let gameOver = false;
+
+document.addEventListener("keydown", e => {
+    if (e.key === "ArrowLeft" && playerPos > 0) playerPos -= 25;
+    if (e.key === "ArrowRight" && playerPos < 350) playerPos += 25;
+    player.style.left = playerPos + "px";
+});
+
+document.getElementById("nitroBtn").onclick = () => {
+    speed += 5;
+    setTimeout(() => speed -= 5, 2000);
+};
+
+function resetEnemy(e) {
+    e.style.top = "-120px";
+    e.style.left = Math.random() * 350 + "px";
+}
+
+function resetCoin() {
+    coin.style.top = "-100px";
+    coin.style.left = Math.random() * 350 + "px";
+}
+
+enemies.forEach(resetEnemy);
+resetCoin();
+
+function collision(a, b) {
+    let r1 = a.getBoundingClientRect();
+    let r2 = b.getBoundingClientRect();
+    return !(r1.bottom < r2.top || r1.top > r2.bottom || r1.right < r2.left || r1.left > r2.right);
+}
+
+function gameLoop() {
+    if (gameOver) return;
+
+    // road move
+    road.style.top = (parseInt(road.style.top || -600) + speed) + "px";
+    if (parseInt(road.style.top) >= 0) road.style.top = "-600px";
+
+    // enemies
+    enemies.forEach(e => {
+        let top = parseInt(e.style.top);
+        e.style.top = top + speed + "px";
+
+        if (top > 600) {
+            resetEnemy(e);
+            score++;
+        }
+
+        if (collision(player, e)) {
+            crashSound.play();
+            gameOver = true;
+            gameOverText.style.display = "block";
+        }
+    });
+
+    // coin
+    let coinTop = parseInt(coin.style.top);
+    coin.style.top = coinTop + speed + "px";
+
+    if (coinTop > 600) resetCoin();
+
+    if (collision(player, coin)) {
+        coinSound.play();
+        score += 5;
+        resetCoin();
+    }
+
+    // level system
+    level = Math.floor(score / 10) + 1;
+    speed = 5 + level;
+
+    scoreText.innerHTML = "Score: " + score + " | Level: " + level;
+
+    requestAnimationFrame(gameLoop);
+}
+
+gameLoop();
