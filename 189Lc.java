@@ -66,3 +66,5 @@ class Solution {
         reverse(nums, k, n - 1);   // reverse the rest
     }
 }
+//ACtually todays question is same as the code snippet above, but I have done it in a different way. I have used extra space to store the rotated array and then copied it back to the original array. The above code is more efficient as it does not use extra space and rotates the array in place. 
+//ya the thhing is that the above code is more efficient as it does not use extra space and rotates the array in place. The time complexity of the above code is O(n) and the space complexity is O(1). The time complexity of my code is also O(n) but the space complexity is O(n) because I am using an extra array to store the rotated array.
