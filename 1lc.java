@@ -59,3 +59,29 @@ class Solution {
         return new int[] {};
     }
 }
+
+
+// import java.util.HashMap;
+// import java.util.Map;
+
+// class Solution {
+//     public int[] twoSum(int[] nums, int target) {
+//         // Map to store: Value -> Index
+//         Map<Integer, Integer> map = new HashMap<>();
+        
+//         for (int i = 0; i < nums.length; i++) {
+//             int complement = target - nums[i];
+            
+//             // Check if the number we need exists in the map
+//             if (map.containsKey(complement)) {
+//                 return new int[] { map.get(complement), i };
+//             }
+            
+//             // If not found, add the current number and its index to the map
+//             map.put(nums[i], i);
+//         }
+        
+//         // Return empty array if no solution is found (though the problem says one exists)
+//         return new int[] {};
+//     }
+// }
